@@ -12,9 +12,9 @@ jobs:
   schedule-trigger:
     runs-on: ubuntu-latest 
 
-  steps:
-    - name: checkout code
-      uses: actions/checkout@v4
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
 
-    - name: Print versiot
-      run: python --version
+      - name: Print version
+        run: python --version
