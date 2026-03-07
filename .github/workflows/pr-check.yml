@@ -1,7 +1,7 @@
 name: pr-cicd
 
 on:
-  pull-request:
+  pull_request:
     types: [opened, synchronized]
 
 jobs:
