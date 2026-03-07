@@ -5,13 +5,12 @@ on:
     branches: 
       - main
 
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
   schedule-trigger:
-    runs-on: ubuntu-latest
-  
-  schedule: 
-    - cron: "0 0 * * *" 
+    runs-on: ubuntu-latest 
 
   steps:
     - name: checkout code
