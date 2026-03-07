@@ -1,15 +1,17 @@
-name: pr-cicd
+name: PR Check
 
 on:
   pull_request:
-    types: [opened, synchronized]
+    branches:
+      - main
+    types: [opened, synchronize]
 
 jobs:
   pr-cicd:
     runs-on: ubuntu-latest
+    steps:
+      - name: Check code in repo
+        uses: actions/checkout@v4
 
-  steps:
-    - name: Check code in repo
-      uses: actions/checkout@v4
-    - name: print pr
-      run: echo "PR check running for branch main"
+      - name: print pr
+        run: echo "PR check running for branch ${{ github.head_ref }}"
