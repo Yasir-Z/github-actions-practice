@@ -1,0 +1,21 @@
+name: manual-trigger
+
+on:
+  dispatch_workflow:
+    inputs:
+      environment:
+        description: "Select the target environment"
+        required: true
+        default: "staging"
+        type: choice
+        options:
+          - staging
+          - production
+
+
+jobs:
+  manual-trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print the choice 
+        run: echo "The selected environment is ${{github.event.inputs.environment}}"
