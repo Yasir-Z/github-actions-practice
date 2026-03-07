@@ -1,0 +1,15 @@
+name: pr-cicd
+
+on:
+  pull-request:
+    types: [opened, synchronized]
+
+jobs:
+  pr-cicd:
+    runs-on: ubuntu-latest
+
+  steps:
+    - name: Check code in repo
+      uses: actions/checkout@v4
+    - name: print pr
+      run: echo "PR check running for branch main"
