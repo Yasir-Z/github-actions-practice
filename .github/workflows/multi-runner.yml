@@ -1,39 +1,38 @@
 name: self-hosted-runner
-
 on:
   push:
     branches:
       - main
-
 jobs:
   ubuntu-runner:
-    runs-on: ubuntu-latest # Fixed the previous 'ubuntu-lates' typo
+    runs-on: ubuntu-latest
     steps:
-      - name: Print OS 
+      - name: Print OS
         run: echo "This job is on ${{ runner.os }} operating system"
       - name: The runner's hostname
         if: runner.os != 'Windows'
-        run: echo "Runner's host is: $(hostname)"
+        run: echo "Runner's host is $(hostname)"
       - name: The current user running the job
         run: echo "The user running the job is ${{ github.actor }}"
-  windows-runner: 
+  windows-runner:
     runs-on: windows-latest
     steps:
       - name: Print OS
         run: echo "This job is running on ${{ runner.os }} operating system"
       - name: The runner's hostname
         if: runner.os == 'Windows'
-        run: Write-Host "Hostname: $env:COMPUTERNAME"
-        shell: powershell # Required to use Windows commands like Write-Host
+        run: Write-Host "Hostname $env:COMPUTERNAME"
+        shell: powershell
       - name: The current user running the job
         run: echo "The user running the job is ${{ github.actor }}"
-  macos-runner: 
+  macos-runner:
     runs-on: macos-latest
     steps:
       - name: print os
         run: echo "This job is running on ${{ runner.os }} operating system"
       - name: The runner's hostname
         if: runner.os != 'Windows'
-        run: echo "Runner's host is: $(hostname)"
-      - name: The current user running the job 
+        run: echo "Runner's host is $(hostname)"
+      - name: The current user running the job
         run: echo "The user running the job is ${{ github.actor }}"
+
