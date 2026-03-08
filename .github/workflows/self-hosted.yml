@@ -16,4 +16,4 @@ jobs:
       - name: Create a file and verify it exists on your machine after the run
         run: touch my-file.txt && ls
       - name: print python version
-        run: python --version
+        run: echo "Label added to self-hosted runner"
