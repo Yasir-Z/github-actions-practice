@@ -5,26 +5,26 @@ on:
     branches:
       - main
 
+# The 'jobs:' keyword only appears ONCE
 jobs:
   ubuntu-runner:
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest # Fixed typo: 'ubuntu-lates' to 'ubuntu-latest'
     steps:
       - name: Print OS 
-        run: echo "This job is on  ${{ runner.os }} operating system"
+        run: echo "This job is on ${{ runner.os }} operating system"
 
       - name: The runner's hostname
-        if: runner.os != "windows"
+        if: runner.os != 'Windows'
         run: echo "Runner's host is: $(hostname)"
 
       - name: The current user running the job
         run: echo "The user running the job is ${{ github.actor }}"
 
-jobs:
-  windows-runner:
+  windows-runner: # No 'jobs:' keyword here
     runs-on: windows-latest
     steps:
       - name: Print OS
-        run: echo "This jos is running on ${{ runner.os }} operating system"
+        run: echo "This job is running on ${{ runner.os }} operating system"
 
       - name: The runner's hostname
         if: runner.os == 'Windows'
@@ -34,21 +34,16 @@ jobs:
       - name: The current user running the job
         run: echo "The user running the job is ${{ github.actor }}"
 
-
-jobs: 
-  macos-runner:
+  macos-runner: # No 'jobs:' keyword here
     runs-on: macos-latest
     steps:
       - name: print os
-        run: echo "This job is running on ${{ runner.os}} operating system"
+        # Added missing space in ${{ runner.os }}
+        run: echo "This job is running on ${{ runner.os }} operating system"
 
       - name: The runner's hostname
-        if: runner.os != "windows"
+        if: runner.os != 'Windows'
         run: echo "Runner's host is: $(hostname)"
 
       - name: The current user running the job 
         run: echo "The user running the job is ${{ github.actor }}"
-
-# workflow ends here 
-
-
