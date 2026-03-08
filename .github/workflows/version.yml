@@ -1,0 +1,21 @@
+name: version-check-cicd
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  version-check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: print docker version
+      run: docker version
+    - name: python version check
+      run: python --version
+    - name: print node.js version
+      run: npm test
+    - name: Git version check
+      run: git version
+ 
