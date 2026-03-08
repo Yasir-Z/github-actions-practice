@@ -1,3 +1,4 @@
+# workflow start here 
 name: self-host-runner
 
 on:
@@ -6,7 +7,7 @@ on:
       - main
 jobs:
   self-hosted-runner:
-    runs-on: self-hosted
+    runs-on: [self-hosted, my-linux-runner]
     steps:
       - name: Print the hostname of the machine
         run: hostname
@@ -14,3 +15,5 @@ jobs:
         run: pwd
       - name: Create a file and verify it exists on your machine after the run
         run: touch my-file.txt && ls
+      - name: print python version
+        run: python --version
