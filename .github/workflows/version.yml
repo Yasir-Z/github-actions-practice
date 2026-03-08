@@ -16,6 +16,8 @@ jobs:
       run: python --version
     - name: print node.js version
       run: npm test
+    - name: Install dependencies
+      run: npm ci
     - name: Git version check
       run: git version
  
