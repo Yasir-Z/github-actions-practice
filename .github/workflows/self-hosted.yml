@@ -1,0 +1,16 @@
+name: self-host-runner
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  self-hosted-runner:
+    runs-on: ubuntu
+    steps:
+      - name: Print the hostname of the machine
+        run: hostname
+      - name: Print the working directory
+        run: pwd
+      - name: Create a file and verify it exists on your machine after the run
+        run: touch my-file.txt && ls
