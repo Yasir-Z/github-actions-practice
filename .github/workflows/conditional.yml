@@ -10,5 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run if banch is main. 
-        if: branches=="main"
+        if: github.ref_name == 'main'
         run: echo "job running on main branch"
