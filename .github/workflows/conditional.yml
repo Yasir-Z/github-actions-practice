@@ -8,14 +8,18 @@ on:
 jobs:
   conditional-workflow:
     runs-on: ubuntu-latest
-    steps:
-      - name: run if banch is main. 
-        id: main-branch
-        if: github.ref_name == 'main'
-        run: |
-          echo "Simulating a failure on main branch..."
-          exit 1
+   # steps:
+    #  - name: run if banch is main. 
+     #   id: main-branch
+      #  if: github.ref_name == 'main'
+       # run: |
+        #  echo "Simulating a failure on main branch..."
+         # exit
 
       - name: run on last step failure
         if: failure() && steps.main-branch.outcome == 'failure'
         run: echo "Last step failed that's why it runs"
+
+      - name: Run on push event only not on pull event
+        if: github.event_name != 'pull_request'
+        run: echo "This job is running on push event only"
