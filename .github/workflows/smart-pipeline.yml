@@ -19,7 +19,7 @@ jobs:
   
   Summary:
     runs-on: ubuntu-latest
+    needs: [Linting-code, Testing-code]
     steps:
-      needs: [Linting-code, Testing-code]
       - name: summary and branch check
         run: echo "This job is running on ${{ github.ref_name }}"
