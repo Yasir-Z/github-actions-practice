@@ -1,0 +1,14 @@
+name: conditional-workflow
+
+on:
+  push:
+    branches:
+     - main
+
+jobs:
+  conditional-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run if banch is main. 
+        if: branches=="main"
+        run: echo "job running on main branch"
