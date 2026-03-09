@@ -23,4 +23,4 @@ jobs:
 
     steps:
     - name: print the date 
-      run: echo "This passed date is: ${{ needs.generate-date.outputs.date_today }}"
+      run: echo "This passed date is ${{ needs.generate-date.outputs.date_today }}"
