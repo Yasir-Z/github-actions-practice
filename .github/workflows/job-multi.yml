@@ -11,16 +11,14 @@ env:
 jobs:
   multi-jobs:
     runs-on: ubuntu-latest
-    
-    env:
-      ENVIRONMENT: staging
-
-    steps: # This MUST be aligned with 'runs-on' and 'env' above
+    steps:
       - name: App name
         run: echo "Name of a is $APP_NAME"
  
   app-enrironment:
     runs-on: ubuntu-latest
+    env:
+      ENVIRONMENT: staging
     steps:
       - name: App environment
         run: echo "App is running in Environment $ENVIRONMENT"
