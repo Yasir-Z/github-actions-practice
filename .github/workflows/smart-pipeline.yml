@@ -1,0 +1,20 @@
+name: smart-pipeline
+
+on: push
+
+jobs:
+  Linting-code:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Lint-job
+      run: echo "code is linting is in progress"
+
+
+  Testing-code:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Test-job
+      run: echo "Testing is in progress"
+
+
