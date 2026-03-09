@@ -5,13 +5,26 @@ on:
     branches:
       - main
 
+env:
+  APP_NAME: myapp
 jobs:
   multi-jobs:
     runs-on: ubuntu-latest
+
+    env:
+      ENVIRONMENT: staging    
     steps:
-      - name: Build the job
-        run: echo "Building the job"
-      - name: Test the job 
-        run: echo "Testing the job"
-      - name: Deploy the job
-        run: echo "Deploying the job"
+      - name: App name
+        run: echo "Name of a is ${{ APP_NAME }}"
+      - name: App environment
+        run: echo "App is running in ${{ ENVIRONMNET }}."        
+        env:
+          VERSION: 1.0.0
+      - name: App version
+        run: echo "Version of app is ${{ VERSION }}."
+      - name: GitHub context variable 
+        run: | 
+          echo "This is triggerd by ${{ github.actor }}."
+          echo "This commit sha is ${{ github.sha }}."
+
+    
