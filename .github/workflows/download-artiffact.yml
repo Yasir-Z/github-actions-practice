@@ -12,21 +12,19 @@ jobs:
     steps:
       - name: check out repo for latest code updates
         uses: actions/checkout@v4
-      - name: create file 
-        run: echo "hello-wrold" > file.txt
+      - name: create file
+        run: echo "hello-wrold" > my-file.txt
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: my-artifact
-          path: file.txt
+          path: my-file.txt
 
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: my-artifact
           path: /root/github-actions-practice
-      
-      - name: print artifact 
-        run: cat /root/github-actions-practice/file.txt
 
-    
+      - name: print artifact
+        run: cat /root/github-actions-practice/my-file.txt
