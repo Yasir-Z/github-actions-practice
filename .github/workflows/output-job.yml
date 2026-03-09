@@ -9,7 +9,7 @@ jobs:
   generate-date:
     runs-on: ubuntu-latest
 
-    output:
+    outputs:
      date_today: ${{steps.date_step.output.formatted_date}}
 
      steps:
