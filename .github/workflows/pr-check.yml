@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: print pr
-        run: echo "PR check running for branch ${{ github.head_ref }}"
+        run: echo "PR check running for branch ${{ github.head_ref }}" # pipeline ends here
