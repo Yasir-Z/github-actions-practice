@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: run if banch is main. 
         id: main-branch
-        if: github.ref_name == 'main'
+        if: github.ref_name !== 'main'
         run: echo "job running on main branch"
 
       - name: run on last step failure
