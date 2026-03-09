@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-     date_today: ${{steps.date_step.output.formatted_date}}
+     date_today: ${{steps.date_step.outputs.formatted_date}}
 
     steps:
     - name: Calculate Date
-      id: data_step
+      id: date_step
       run: echo "formatted_date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
   read-date:
@@ -23,4 +23,4 @@ jobs:
 
     steps:
     - name: print the date 
-      run: echo "This data passed is ${{ needs.generate-date.outputs.date_today }}"
+      run: echo "This passed date is: ${{ needs.generate-date.outputs.date_today }}"
