@@ -15,7 +15,7 @@ jobs:
         run: |
           echo "Simulating a failure on main branch..."
           exit 1
-        continue-on-error: true
+       # continue-on-error: true
 
       - name: run on last step failure
         if: failure() && steps.main-branch.outcome == 'failure'
