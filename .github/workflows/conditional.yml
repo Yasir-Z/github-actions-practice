@@ -8,7 +8,7 @@ on:
 jobs:
   conditional-workflow:
     runs-on: ubuntu-latest
-   # steps:
+    steps:
     #  - name: run if banch is main. 
      #   id: main-branch
       #  if: github.ref_name == 'main'
