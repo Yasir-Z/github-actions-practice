@@ -12,9 +12,9 @@ jobs:
     outputs:
      date_today: ${{steps.date_step.output.formatted_date}}
 
-     steps:
-       - name: Calculate Date
-         id: data_step
-         run: echo "formatted_date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+    steps:
+    - name: Calculate Date
+      id: data_step
+      run: echo "formatted_date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
 
