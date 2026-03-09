@@ -21,7 +21,7 @@ jobs:
         env:
           VERSION: 1.0.0
       - name: App version
-        run: echo "Version of app version: $VERSION"
+        run: echo "Version of app version $VERSION"
       - name: GitHub context variable 
         run: | 
           echo "This is triggerd by ${{ github.actor }}."
