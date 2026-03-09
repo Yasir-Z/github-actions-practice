@@ -10,11 +10,16 @@ jobs:
     - name: Lint-job
       run: echo "code is linting is in progress"
 
-  # This is test job
+
   Testing-code:
     runs-on: ubuntu-latest
     steps:
     - name: Test-job
       run: echo "Testing is in progress"
-
-
+  
+  Summary:
+    runs-on: ubuntu-latest
+    steps:
+      needs: [Linting-code, Testing-code]
+      - name: summary and branch check
+        run: echo "This job is running on ${{ github.ref_name }}"
