@@ -15,5 +15,5 @@ jobs:
         run: echo "job running on main branch"
 
       - name: run on last step failure
-        if: failure() && steps.main-branch.outcomes=="failure"
+        if: failure() && steps.main-branch.outcome == 'failure'
         run: echo "Last step failed that's why it runs"
