@@ -1,0 +1,20 @@
+name: output-jobs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-date:
+    runs-on: ubuntu-latest
+
+    output:
+     date_today: ${{steps.date_step.output.formatted_date}}
+
+     steps:
+       - name: Calculate Date
+         id: data_step
+         run: echo "formatted_date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+
